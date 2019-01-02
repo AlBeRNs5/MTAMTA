@@ -278,7 +278,7 @@ client.on('message', function(msg) {
       "hongkong": "Hong Kong"
   };
  
-  if(msg.content.startsWith ('$server')) {
+  if(msg.content.startsWith ('*server')) {
     let embed = new Discord.RichEmbed()
     .setColor('RANDOM')
     .setThumbnail(msg.guild.iconURL)
