@@ -33,7 +33,7 @@ client.user.setGame(`AlBeRNs  `,"https://www.twitch.tv/dggamingbot")
 
 
 client.on('message', message => {
-    if (message.content.startsWith("<@525009192881356841>"))
+    if (message.content.startsWith("<@529791622448152596>"))
     
     message.reply("https://discordapp.com/api/oauth2/authorize?client_id=529791622448152596&permissions=0&scope=bot");
     
