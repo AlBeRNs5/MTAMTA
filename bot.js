@@ -220,21 +220,23 @@ message.channel.sendEmbed(id);
 });
 
 
-var antispam = require("anti-spam"); //npm i anti-spam
- 
-antispam(client, {
-  warnBuffer: 3, //الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على تحذير.
-  maxBuffer: 5, // الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على ميوت.
-  interval: 1000, // مقدار الوقت قبل حصول باند
-  warningMessage: "stop spamming.", // رسالة تحذير اذا سوا سبام!
-  roleMessage: "Muted!!", // الرسالة الي تجي اذا شخص اخذ ميوت
-  roleName: "Muted", // اسم رتبة الميوت
-  maxDuplicatesWarning: 7, // عدد الرسايل الي قبل التحذيرات
-  maxDuplicatesBan: 10, // عدد الرسايل الي يقدر المستخدم يرسلها قبل الميوت
-  time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية
-});
+client.on('message', message => {
+                 if (!message.channel.guild) return;
+         if(message.content =='.members')
+         var kayan = new Discord.RichEmbed()
+         .setThumbnail(message.author.avatarURL)
+         .setFooter(message.author.username, message.author.avatarURL)
+         .setTitle('🌷| Members info')
+         .addBlankField(true)
+         .addField('📗| Online',
+         `${message.guild.members.filter(m=>m.presence.status == 'online').size}`)
+         .addField('📕| DND',`${message.guild.members.filter(m=>m.presence.status == 'dnd').size}`)
+         .addField('📙| Idle',`${message.guild.members.filter(m=>m.presence.status == 'idle').size}`)
+         .addField('📓| Offline',`${message.guild.members.filter(m=>m.presence.status == 'offline').size}`)
+         .addField('➡| Server Members',`${message.guild.memberCount}`)
+         message.channel.send(kayan);
 
-
+       });
 
 
 
