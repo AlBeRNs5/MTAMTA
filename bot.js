@@ -73,7 +73,7 @@ client.user.setGame(`By : AlBeRNs  `,"https://www.twitch.tv/dggamingbot")
 client.on('message', message => {
     if (message.content.startsWith("<@529791622448152596>"))
     
-    message.reply("تفضل رابط البوت https://discordapp.com/api/oauth2/authorize?client_id=529791622448152596&permissions=0&scope=bot");
+    message.reply("عايز ايه .؟ انا كده المفروض ارد عليك . غبي");
     
       
 
