@@ -527,13 +527,13 @@ client.on('message', message => {
          message.guild.createChannel('pic', 'text')
          message.guild.createChannel('Rewards', 'voice')
           message.guild.createChannel('Chat', 'text')
-         message.guild.createChannel('Sugg', 'voice')
+         message.guild.createChannel('Sugg', 'text')
          message.guild.createChannel('game', 'text')
          message.guild.createChannel('music', 'voice')
                   message.guild.createChannel('bot', 'text')
  
     
-    message.channel.sendMessage('**تم يا برنس **')
+    message.channel.sendMessage('**Done AlBeRNs **')
     }
     });
 
