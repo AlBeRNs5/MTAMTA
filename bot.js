@@ -6,7 +6,7 @@ const prefix = '/'
  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`AlBeRNs  `,"https://www.twitch.tv/dggamingbot")
+client.user.setGame(`By : AlBeRNs  `,"https://www.twitch.tv/dggamingbot")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -518,98 +518,25 @@ client.on('message', message => {
     if (message.content === prefix + 'createText') {
         if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
                 if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_CHANNELS`` **Premission**`);
-         message.guild.createChannel('اسم الروم الكتابي', 'text')
-         message.guild.createChannel('اسم الروم الصوتي', 'voice')
-          message.guild.createChannel('اسم الروم الكتابي', 'text')
-         message.guild.createChannel('اسم الروم الصوتي', 'voice')
-          message.guild.createChannel('اسم الروم الكتابي', 'text')
-         message.guild.createChannel('اسم الروم الصوتي', 'voice')
-         message.guild.createChannel('اسم الروم الكتابي', 'text')
-         message.guild.createChannel('اسم الروم الصوتي', 'voice')
-          message.guild.createChannel('اسم الروم الكتابي', 'text')
-         message.guild.createChannel('اسم الروم الصوتي', 'voice')
-         message.guild.createChannel('اسم الروم الكتابي', 'text')
-         message.guild.createChannel('اسم الروم الصوتي', 'voice')
-                  message.guild.createChannel('اسم الروم الكتابي', 'text')
-         message.guild.createChannel('اسم الروم الصوتي', 'voice')
+         message.guild.createChannel('announcements', 'text')
+         message.guild.createChannel('Scripting-show', 'voice')
+          message.guild.createChannel('maps-show', 'text')
+         message.guild.createChannel('talk', 'voice')
+          message.guild.createChannel('vote', 'text')
+         message.guild.createChannel('duo', 'voice')
+         message.guild.createChannel('pic', 'text')
+         message.guild.createChannel('Rewards', 'voice')
+          message.guild.createChannel('Chat', 'text')
+         message.guild.createChannel('Sugg', 'voice')
+         message.guild.createChannel('game', 'text')
+         message.guild.createChannel('music', 'voice')
+                  message.guild.createChannel('bot', 'text')
+ 
     
-    message.channel.sendMessage('**Text Channel Was Succsesfluy Created**')
+    message.channel.sendMessage('**تم يا برنس **')
     }
     });
 
-var Discord = require("discord.js");
-var client = new Discord.Client();
-var fs = require('fs');
-var prefix = "!";
-try {
-    require("./localstorage.json");
-} catch (e) {
-    fs.writeFileSync('localstorage.json', '{\n\n}', function (err) {
-        if (err) throw err;
-    });
-}
- 
-var db = JSON.parse(fs.readFileSync("./localstorage.json", 'utf8'));
- 
-client.on("message", async function(msg) {
-    if (msg.author.bot) return undefined;
-    if (msg.channel.type !== "text") return undefined;
-    else {
- 
-        await fs.readFileSync("./localstorage.json", 'utf8');
- 
-        if (!db[msg.author.id]) db[msg.author.id] = {
-            credits : 0,
-            messages : 0,
-        };
-        db[msg.author.id].messages+=1;
-        if (db[msg.author.id].messages == 5) {
-            db[msg.author.id].credits = db[msg.author.id].credits+Math.floor(Math.random() * 5) +1;
-            db[msg.author.id].messages = db[msg.author.id].messages = 0;
-        } // L#7574
-        fs.writeFile("./localstorage.json", JSON.stringify(db), function(err) {
-            if (err) throw err;
-        });
-        var args = msg.content.toLowerCase().split(" ");
-        var mention = msg.mentions.users.first() || client.users.get(msg.content.split(" ")[1]) || msg.author;
- 
-        if (args[0].slice(prefix.length) === "blance" || args[0].slice(prefix.length) === "credit" || args[0].slice(prefix.length) === "credits") {
-            if (!db[mention.id]) db[mention.id] = {
-                credits : 0,
-                messages : 0,
-            };
-            if (mention.id == msg.author.id) {
-                word = "You";
-            } else {
-                word = ${mention}'s;
-            }// L#7574
-            if (db[mention.id].credits <= 0) return msg.channel.send(${word} don't have any credit!);
-            if (db[mention.id].credits > 0 && db[mention.id].credits !== 0) return msg.channel.send(${word} blance is ${db[mention.id].credits});
-        } else if (args[0].slice(prefix.length) === "transfer") {
-            if (!db[msg.author.id]) db[msg.author.id] = {
-                    credits : 0,
-                    messages: 0,
-                }
-            if (!db[mention.id]) {
-                db[mention.id] = {
-                    credits : 0,
-                    messages : 0,
-                }
-            }
-            if (isNaN(args[2]) || !args[2] || !mention || isNaN(args[2]) && !args[2] && !mention) return msg.channel.send(?!)
-            else {
-                if (db[msg.author.id].credits <= 0 && db[msg.author.id].credits <= args[2]) {
-                    return msg.channel.send(You don't have enough credit to transfer!)
-                }
-                else {
-                    db[msg.author.id].credits-=parseInt(args[2])
-                    db[mention.id].credits+=parseInt(args[2])
-                    return msg.channel.send(${mention}, have ${db[mention.id].credits} credit now!)
-                }
-            }
-        }
-    }
-	  
 
 
 client.login(process.env.BOT_TOKEN);
