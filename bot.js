@@ -537,23 +537,6 @@ client.on('message', message => {
     }
     });
 
-client.on("message", msg => {
-  var prefix = '/'//البركفس
-  if(msg.content.startsWith(prefix + 'myserver)){
-    let embed = new Discord.RichEmbed()
-    .setThumbnail(msg.guild.iconURL)
-    .setColor("RANDOM")
-    .addField("Year📆",msg.guild.createdAt.getFullYear())
-    .addField("Hour📆", msg.guild.createdAt.getHours())
-    .addField("Day📆", msg.guild.createdAt.getDay())
-    .addField("Month📆", msg.guild.createdAt.getMonth())
-    .addField("Minutes📆", msg.guild.createdAt.getMinutes())
-    .addField("Seconds📆", msg.guild.createdAt.getSeconds())
-    .addField("Full📆", msg.guild.createdAt.toLocaleString())
-    .setTimestamp()
-    msg.channel.send(embed);
-  }
-});
 
 client.on('message', message => { 
            if (message.content.startsWith(prefix + "id")) {
