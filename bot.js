@@ -525,7 +525,7 @@ client.on('message', message => {
           message.guild.createChannel('vote', 'text')
          message.guild.createChannel('duo', 'voice')
          message.guild.createChannel('pic', 'text')
-         message.guild.createChannel('Rewards', 'voice')
+         message.guild.createChannel('AFK', 'voice')
           message.guild.createChannel('Chat', 'text')
          message.guild.createChannel('Sugg', 'text')
          message.guild.createChannel('game', 'text')
