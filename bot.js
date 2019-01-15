@@ -151,7 +151,7 @@ client.on('message', message => {
         let args = message.content.split(' ').slice(1).join(' ');
     if(message.content.split(' ')[0] == prefix + 'bc') {
         if (!args[1]) {
-    message.channel.send("**اكتب شي بعد الكوماند**");
+    message.channel.send("**اكتب شي بعد الامر**");
     return;
     }
             message.guild.members.forEach(m => {
@@ -222,7 +222,7 @@ message.channel.sendEmbed(id);
 
 client.on('message', message => {
                  if (!message.channel.guild) return;
-         if(message.content =='.members')
+         if(message.content =='/members')
          var kayan = new Discord.RichEmbed()
          .setThumbnail(message.author.avatarURL)
          .setFooter(message.author.username, message.author.avatarURL)
