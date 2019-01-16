@@ -560,7 +560,7 @@ client.on("guildMemberAdd", member => {
 client.on('guildCreate', guild => {
     var embed = new Discord.RichEmbed()
     .setColor(0x5500ff)
-    .setDescription(`**شكراً لك لإضافه البوت الى سيرفرك**`)
+    .setDescription(`**thx for add me **`)
         guild.owner.send(embed)
   });
 
