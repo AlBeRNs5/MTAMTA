@@ -573,6 +573,18 @@ client.on('message', async msg => {
   }
 });
 
+client.on('message', dark => {
+    
+    if (dark.content === "MTA") {
+        setInterval(function(){
+        dark.edit('**M**')    
+        dark.edit('**MT**')    
+        dark.edit('**MTA**')
+        }, 900)
+    }
+    
+})
+
 
 
 
