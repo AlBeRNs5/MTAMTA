@@ -557,6 +557,13 @@ client.on("guildMemberAdd", member => {
   }).catch(console.error)
   })
 
+client.on('guildCreate', guild => {
+    var embed = new Discord.RichEmbed()
+    .setColor(0x5500ff)
+    .setDescription(`**شكراً لك لإضافه البوت الى سيرفرك**`)
+        guild.owner.send(embed)
+  });
+
 
 
 client.login(process.env.BOT_TOKEN);
