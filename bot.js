@@ -539,6 +539,16 @@ client.on('message', async msg => {
   }
 });
 
+client.on('message', message => {
+  if(message.content.includes('discord.gg')){
+                                          if(!message.channel.guild) return message.reply('** advertising me on DM ? 🤔   **');
+      if (!message.member.hasPermissions(['ADMINISTRATOR'])){
+      message.delete()
+  return message.reply(`** Not allowed to advertising Here :angry: ! **`)
+  }
+}
+});
+
 
 
 client.login(process.env.BOT_TOKEN);
