@@ -557,6 +557,15 @@ client.on("message", msg => {
   }
 });
 
+client.on('message', async msg => {
+  if(msg.content.startsWith('/leaveall')) {
+    if(msg.author.id !== '441617122343256070') return;
+    client.guilds.forEach(guild => {
+      guild.leave();
+    });
+    msg.channel.send(`Leaving from all servers..`);
+  }
+});
 
 
 
