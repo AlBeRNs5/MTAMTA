@@ -808,6 +808,17 @@ client.on('message', msg => {
   }
 })                             
 
+client.on('message', message => {
+              if (!message.channel.guild) return;
+      if(message.content =='/count')
+      var IzRo = new Discord.RichEmbed()
+      .setThumbnail(message.author.iconURL)
+      .setFooter(message.author.username, message.author.avatarURL)
+      .setTitle(' عدد اعضاء السيرفر  ')
+      .addBlankField(true)
+      .addField('.',`${message.guild.memberCount}`)
+      message.channel.send(IzRo);
+    });
 
 
 
