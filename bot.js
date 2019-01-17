@@ -1344,7 +1344,7 @@ if(message.content.toLowerCase().startsWith(prefix + `close`)) {
 
 
 client.on('message', async msg => {
-    var prefix = ".";
+    var prefix = "/";
     var user = msg.author;
             var a = msg.guild.roles.find("name", 'League Of Legends');
         if(!a){
