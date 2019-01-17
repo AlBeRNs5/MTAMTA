@@ -637,7 +637,7 @@ client.on('message',async message => {
 if(!message.channel.guild) return message.reply(' ');
  
  
-  let submite = message.guild.channels.find(`name`, "App");
+  let submite = message.guild.channels.find(`name`, "app");
  
   if(!submite) return message.channel.send("❌لم اجد الروم الخاص بالتقديمات");
  
