@@ -1321,7 +1321,7 @@ if(message.content.toLowerCase().startsWith(prefix + `close`)) {
  
     message.channel.send(yes)
     .then((m) => {
-      message.channel.awaitMessages(response => response.content === '-close', {
+      message.channel.awaitMessages(response => response.content === '/close', {
         max: 1,
         time: 20000,
         errors: ['time'],
