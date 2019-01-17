@@ -564,39 +564,10 @@ client.on('guildCreate', guild => {
         guild.owner.send(embed)
   });
 
-client.on('guildCreate', guild => {
-   
-    client.users.get("ايدي حقك")
-      const Dark&Narox = new Discord.RichEmbed()
-      .setAuthor(`بوتك دخل سيرفر جديد مبروك ✅`)
-      .setDescription(`**
-    Server name: __${guild.name}__
-    Server id: __${guild.id}__
-    Server owner: __${guild.owner}__
-    Member Count: __${guild.memberCount}__
-    Servers Counter : __${client.guilds.size}__**`)
-            .setColor('#36393e')
-            .setFooter('Narox' , client.user.avatarURL)
-           client.users.get("441617122343256070").send({Dark&Narox});
-  })
-   
-  client.on('guildDelete', guild => {
-     
-    client.users.get("441617122343256070")
-  
-    const Dark&Narox = new Discord.RichEmbed()
-    .setAuthor(`MTA Bot. left a server ❎`)
-    .setDescription(`**
-   Server name: __${guild.name}__
-   Server id: __${guild.id}__
-   Server owner: __${guild.owner}__
-   Members Count: __${guild.memberCount}__
-   Servers Counter : __${client.guilds.size}__**`)
-           .setColor('#36393e')
-           .setFooter('Narox' , client.user.avatarURL)
-           client.users.get("ايدي حقك").send({Dark&Narox});
-   
-  });
-
+client.on('message', msg => {
+  if (msg.content === 'Metagaming') {
+    msg.reply('خلط معلومات ic ب ooc والعكس');
+  }
+});
 
 client.login(process.env.BOT_TOKEN);
