@@ -570,4 +570,43 @@ client.on('message', msg => {
   }
 });
 
+client.on('message',async message => {
+var prefix = "/"//هنا حط ال����رفكس حقك
+var codes = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(message.content.toLowerCase().split(' ').slice(1).join(" ").toLowerCase())>-1 ).first(); 
+if(message.content.startsWith(prefix + "rrole")) {//بادئة الامر الاول
+await message.channel.send(`**🔄 | تـــــ إزالة رتبة ــم undefined من الكل **`);
+message.guild.members.forEach(m => {m.removeRole(codes)});
+}
+if(message.content.startsWith(prefix + "arole")) {//بادئة الامر الثاني
+await message.channel.send(`**🔄 | تـــــ إضافة رتبة ــم undefined للكل **`);
+message.guild.members.forEach(m => {m.addRole(codes)});
+}});
+
+const invites = {};
+
+const wait = require('util').promisify(setTimeout);
+
+client.on('ready', () => {
+  wait(1000);
+
+  client.guilds.forEach(g => {
+    g.fetchInvites().then(guildInvites => {
+      invites[g.id] = guildInvites;
+    });
+  });
+});
+
+client.on('guildMemberAdd', member => {
+  member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    invites[member.guild.id] = guildInvites;
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const logChannel = member.guild.channels.find(channel => channel.name === "welcome");
+    logChannel.send(`${member} Invited by: <@${inviter.id}>`);
+  });
+});
+
+
+
 client.login(process.env.BOT_TOKEN);
