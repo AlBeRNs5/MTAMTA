@@ -809,17 +809,13 @@ client.on('message', msg => {
 })                             
 
 client.on('message', message => {
-              if (!message.channel.guild) return;
-      if(message.content =='/count')
-      var IzRo = new Discord.RichEmbed()
-      .setThumbnail(message.author.iconURL)
-      .setFooter(message.author.username, message.author.avatarURL)
-      .setTitle(' عدد اعضاء السيرفر  ')
-      .addBlankField(true)
-      .addField('.',`${message.guild.memberCount}`)
-      message.channel.send(IzRo);
-    });
-
-
+    if (message.content === prefix + "date") {
+        var currentTime = new Date(),
+            السنة = currentTime.getFullYear(),
+            الشهر = currentTime.getMonth() + 1,
+            اليوم = currentTime.getDate();
+        message.channel.sendMessage( "التاريخ : " + اليوم + "-" + الشهر + "-" +السنة)
+    }
+});
 
 client.login(process.env.BOT_TOKEN);
