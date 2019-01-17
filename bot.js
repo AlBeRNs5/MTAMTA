@@ -505,7 +505,7 @@ client.on('message', message => {
          message.guild.createChannel('game', 'text')
          message.guild.createChannel('music', 'voice')
                   message.guild.createChannel('bot', 'text')
- 
+         message.guild.createChannel('app', 'text')
     
     message.channel.sendMessage('**Done AlBeRNs **')
     }
