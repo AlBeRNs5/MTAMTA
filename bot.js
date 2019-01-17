@@ -607,20 +607,27 @@ client.on('guildMemberAdd', member => {
   });
 });
 
-var antispam = require("anti-spam");//npm i anti-spam
- 
-antispam(client, {
-  warnBuffer: 3, //الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على تحذير.
-  maxBuffer: 5, // الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على ميوت.
-  interval: 1000, // مقدار الوقت قبل حصول باند
-  warningMessage: "stop spamming.", // رسالة تحذير اذا سوا سبام!
-  roleMessage: "Muted!!", // الرسالة الي تجي اذا شخص اخذ ميوت
-  roleName: "Muted", // اسم رتبة الميوت
-  maxDuplicatesWarning: 7, // عدد الرسايل الي قبل التحذيرات
-  maxDuplicatesBan: 10, // عدد الرسايل الي يقدر المستخدم يرسلها قبل الميوت
-  time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية 
-});
+client.on('message',async message => {
+  if(message.content === '/unbanall') {
+    var user = message.mentions.users.first();
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('❌|**`ADMINISTRATOR`لا توجد لديك صلاحية `**');
+    if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+    const guild = message.guild;
 
+  message.guild.fetchBans().then(ba => {
+  ba.forEach(ns => {
+  message.guild.unban(ns);
+  const embed= new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`**:white_check_mark: Has Been Unban For All**`)
+    .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+  message.channel.sendEmbed(embed);
+  guild.owner.send(`سيرفر : ${guild.name}
+  **تم فك الباند عن الجميع بواسطة** : <@${message.author.id}>`) 
+  });
+  });
+  }
+  });
 
 
 
