@@ -1379,10 +1379,10 @@ var m = msg.guild.roles.find("name", 'Minecraft');
           permissions:[]
         })
         }
-        var f = msg.guild.roles.find("name", 'Cs GO');
+        var f = msg.guild.roles.find("name", 'CrossFire');
         if(!f){
         f =  await msg.guild.createRole({
-          name: "Cs GO",
+          name: "CrossFire",
           color: "#ffffff",
           permissions:[]
         })
@@ -1395,10 +1395,10 @@ var m = msg.guild.roles.find("name", 'Minecraft');
           permissions:[]
         })
         }
-        var black = msg.guild.roles.find("name", 'Blacksquad');
+        var black = msg.guild.roles.find("name", 'Pubg/freeFire');
     if(!black){
         black =  await msg.guild.createRole({
-          name: "Blacksquad",
+          name: "Pubg/freefire",
           color: "#ffffff",
           permissions:[]
         })
@@ -1446,12 +1446,12 @@ ff.on("collect", r => {
 })
 bb.on("collect", r => {
     msg.guild.member(user.id).addRole(b);
-    msg.channel.send('`تم اعطائك رتبة للعبة Brawlhalla `');
+    msg.channel.send('`تم اعطائك رتبة للعبة CrossFIRE `');
     msg.delete();
 })
 bl.on("collect", r => {
     msg.guild.member(user.id).addRole(black);
-    msg.channel.send('`تم اعطائك رتبة للعبة Blacksquad `');
+    msg.channel.send('`تم اعطائك رتبة للعبة Pubg/FreeFIre `');
     msg.delete();
 })
 cc.on("collect", r => {
