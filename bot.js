@@ -936,5 +936,21 @@ client.on('message' , message => {
 }
 });
 
+  client.on('message',async message => {
+  if(message.content.startsWith(prefix + "search")) {
+    const args = message.content.split(' ').slice(1).join(' ');
+    if(message.content.split(' ')[0] !== `${prefix}search`) return;
+    var Search = require('youtube-search'),
+    opts = {maxResults: 1, key: 'AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8', type: 'video'}
+ 
+    Search(args, opts, function(err, results) {
+      if(err) return console.log(err);
+ 
+      console.log(results);
+      message.channel.send(results[0].link);
+    });
+  }
+});
+
 
 client.login(process.env.BOT_TOKEN);
