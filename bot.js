@@ -1346,10 +1346,10 @@ if(message.content.toLowerCase().startsWith(prefix + `close`)) {
 client.on('message', async msg => {
     var prefix = "/";
     var user = msg.author;
-            var a = msg.guild.roles.find("name", 'League Of Legends');
+            var a = msg.guild.roles.find("name", 'MTA Player');
         if(!a){
         a = await msg.guild.createRole({
-          name: "League Of Legends",
+          name: "MTA Player",
           color: "#ffffff",
           permissions:[]
         })
@@ -1407,7 +1407,7 @@ var m = msg.guild.roles.find("name", 'Minecraft');
         if (msg.content.startsWith(prefix +'addmerole')) {
  
         if(!msg.channel.guild) return msg.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-msg.channel.send(`يرحي اختيار رتبة اللعبة الذي تريدها \n1- لعبة اقاريو ⚽ \n2- لعبة ماين كرافت 👶 \n3- لعبة فورت نايت 👊 \n4- لعبة براوهلا  👌 \n5- لعبة بلاك سكواد 🍸\n6- الغاء ❌ \n7- **لديك60 ثانية للاختيار **\n<@${msg.author.id}>`).then(res => {    
+msg.channel.send(`يرحي اختيار رتبة اللعبة الذي تريدها \n1- لعبة MTA ⚽ \n2- لعبة ماين كرافت 👶 \n3- لعبة فورت نايت 👊 \n4- لعبة براوهلا  👌 \n5- لعبة بلاك سكواد 🍸\n6- الغاء ❌ \n7- **لديك60 ثانية للاختيار **\n<@${msg.author.id}>`).then(res => {    
      res.react('⚽').then(r=>{    
      res.react('👶').then(r=>{
      res.react('👊').then(r=>{
@@ -1431,7 +1431,7 @@ msg.channel.send(`يرحي اختيار رتبة اللعبة الذي تريد�
  
 aa.on("collect", r => {
     msg.guild.member(user.id).addRole(a);
-    msg.channel.send('`تم اعطائك رتبة للعبة Agar`');
+    msg.channel.send('`تم اعطائك رتبة للعبة MTA`');
     msg.delete();
     })
 mm.on("collect", r => {
