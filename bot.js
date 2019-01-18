@@ -252,69 +252,7 @@ client.on('guildMemberAdd', member => {
 });
 
 
-client.on('message', message => {
-    if (message.author.bot) return;
-     if (message.content === prefix + "help") {
-      if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
-     message.channel.send('**تم ارسال رسالة في الخاص**');
 
-
-
-
- message.author.sendMessage(`
- **
-/me برفكس البوت = "/"
-
-يمكنك عمل منشن للبوت وهو محترم في الرد . 
-
-/clear + Number ( يجب عليك بعد كتابه الامر كتابه عدد الرسائل التي ستحذفها )
-
-invitelink ( لرابط السيرفر تلقائي ) 
-
-/bc لارسال رسائل في الخاص للجميع 
-
-/user لرؤيه مواصفات حسابك داخل السيرفر 
-
-/members لمعرفه حاله الاعضاء بالسيرفر . وعددهم .
-
-/bot لمعرفه خصائص البوت .
-
-/inv لاضافه البوت . 
-
-/avatar لرؤيه صورتك 
-
-/closeroom لقفل الشات المراد قفله 
-
-/openroom لفتح الشات المراد فتحه .
-
-/mute لاعطاء شخص ميوت . 
-
-/unmute لفك الميوت عن شخص .
-
-/myguild لرؤيه خصائص السيرفر 
-
-/unbanall لفك جميع الباند ال في السيرفر 
-
-/ban لاعطاء باند
-
-/app لعمل تقديم . 
-(يجب ان يوجد روم  app ) 
-
-/hide لاخفاء الرومات 
-
-/unhide لاظهار الرومات 
-
-/gstart لعمل جيف اواي وتابع الخطوات 
-( لما يجي ويقولك الروم متعملش هاشتاق ) 
-
-/addroleme لاختيار رتبه العاب ويرجي عدم التخريب بالامر  مره واحده فقط .
-
-/invites لمعرفه عدد الانفايتات .
-
- **`);
-
-    }
-});
 
 client.on('message', message => {
     if (message.content === "/inv") {
