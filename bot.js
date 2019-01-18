@@ -539,11 +539,11 @@ client.on('message',async message => {
   });
 
 client.on("message", message => {
-            if(message.content.startsWith("+app")) { /// Mal , Codes //// O҉Z҉X҉ 
+            if(message.content.startsWith("/تقديم")) { /// Mal , Codes //// O҉Z҉X҉ 
         if(!message.channel.guild) return;////////غير البرفكس
                 if(message.author.bot) return;
         let channel = message.guild.channels.find("name", "التقديمات")//////dont change any thing
-            if(!channel) return message.reply("**لانشاء روم التقديمات /room1 من فضلك اكتب الامر**")/////////dont change
+            if(!channel) return message.reply("**لانشاء روم التقديمات +روم1 من فضلك اكتب الامر**")/////////dont change
             if(channel) {
             message.channel.send( message.member + ', **:timer:**').then( (m) =>{
               m.edit( message.member + ', **اسمك الحقيقى بالكامل **' )
@@ -561,7 +561,7 @@ client.on("message", message => {
                           var age = m2.content;
                           m2.delete()
                           message.channel.send( message.member + ', **:timer:**').then( (m) =>{
-                            m.edit( message.member + ', ** اذكر بعض من قواعد الرول بلاي مفصله بالشرح ويجب ان يكون عددهم اكثر من 5 🎙**' )
+                            m.edit( message.member + ', **اكتب لنا قواعد تخص الرول بلاي  لا تقل عن 5 قواعد بالتفصيل والامثله  🎙**' )
                             setTimeout(() => {
                               m.delete()
                             }, 10000);
@@ -570,7 +570,7 @@ client.on("message", message => {
                                 var ask = m3.content;
                                 m3.delete();
                                 message.channel.send( message.member + ', **:timer:**').then( (m) =>{
-                                  m.edit( message.member + ', **اعطنا مثال عن الاربي الخاص بك في اي فعل . 📑**' )
+                                  m.edit( message.member + ', **اعطي لنا مثال عن الاربي الخاص بك  📑**' )
                                   setTimeout(() => {
                                     m.delete()
                                   }, 10000);
@@ -591,8 +591,8 @@ client.on("message", message => {
                         .setTitle(`**تقديم ادارة** [__**${message.guild.name}**__]`)
                         .addField('**`الاسم`**', `${name}` , true)
                         .addField('**`العمر`**', `${age}` , true)
-                        .addField('**`سؤال القواعد`**',`${ask}`)
-                        .addField('**`سؤال الاربي `**',`${ask2}`)
+                        .addField('**`القواعد`**',`${ask}`)
+                        .addField('**`الاربي `**',`${ask2}`)
                         .addField('**`لماذا يجب علينا قبوله ؟`**',`${ask3}`)
                         .setFooter(message.author.username,'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')
                         channel.send(embed)
@@ -616,7 +616,7 @@ client.on("message", message => {
 }
         });
         client.on('message', message=>{
-            if(message.content.startsWith("/room1")) {
+            if(message.content.startsWith("/روم1")) {
             if(!message.channel.guild) return;
                 if(message.author.bot) return;
                 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
@@ -651,7 +651,7 @@ client.on("message", message => {
 });
 client.on('message',async message => {
   let mention = message.mentions.members.first();
-  if(message.content.startsWith("/رفض")) {
+  if(message.content.startsWith("+رفض")) {
   if(!message.channel.guild) return;
   let acRoom = message.guild.channels.find('name', 'القبول-الرفض');
   if(!acRoom) return message.reply("!!setac من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
@@ -662,7 +662,7 @@ client.on('message',async message => {
   }
 });
           client.on('message', message=>{
-            if(message.content.startsWith("/room2")) {
+            if(message.content.startsWith("/روم2")) {
          if(!message.channel.guild) return;
                 if(message.author.bot) return;
                 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
