@@ -246,7 +246,7 @@ client.on('guildMemberAdd', member => {
     const ei = invites[member.guild.id];
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = client.users.get(invite.inviter.id);
-    const channel = member.guild.channels.find("name", "✽-welcome");
+    const channel = member.guild.channels.find("name", "welcome");
      channel.send(`<@${member.user.id}> ** joined; ** Invited by ** <@${inviter.id}> ** `);
   });
 });
@@ -263,59 +263,53 @@ client.on('message', message => {
 
  message.author.sendMessage(`
  **
-[❖═════ General Commands ═══════❖]
+/me برفكس البوت = "/"
 
- #id معلومات عن حسابك الشخصي
+يمكنك عمل منشن للبوت وهو محترم في الرد . 
 
- #server معلومات حول السيرفر
- 
- #move سحب عضو الى رومك الصوتي
+/clear + Number ( يجب عليك بعد كتابه الامر كتابه عدد الرسائل التي ستحذفها )
 
- #clear مسح الرسائل الموجوده في الروم بعدد
+invitelink ( لرابط السيرفر تلقائي ) 
 
- #avatar يعرض اك صورتك الشخصية
- 
- #image يعرض لك صورة السيرفر
- 
- #credit يوريك كم الكريديت حقتك
+/bc لارسال رسائل في الخاص للجميع 
 
- #daily يسوي لك سحب فلوس
+/user لرؤيه مواصفات حسابك داخل السيرفر 
 
- #rep يعطي ريب
+/members لمعرفه حاله الاعضاء بالسيرفر . وعددهم .
 
- #profile معلومات عامة مع الصورة
- 
-[❖═════ Administrator Commands ═══════❖]
+/bot لمعرفه خصائص البوت .
 
- #ban حضر عضو من السيرفر
- 
- #kick طرد عضو من السيرفر
- 
- #mute اعضاء ميوت كتابي لعضو في السيرفر
- 
- #unmute فك الميوت عن عضو في السيرفر
- 
- #dac حذف جميع رومات السيرفر
- 
- #dar حذف جميع رتب السيرفر
- 
- #openroom فتح المحادثة في الروم
- 
- #closeroom قفل المحادثة في الرةوم
+/inv لاضافه البوت . 
 
- #role اعطاء رتبه لشخض معين
- 
- #role humans اعطاء رتب للبشريين
- 
- #role bots اعطاء رتبه للبوتات
- 
- #role all اعطاء رتبه للجميع سواء بشر او بوتات
- 
-[❖═════ Other ═══════❖]
+/avatar لرؤيه صورتك 
 
- #support رابط سيرفر الدعم الفني
- 
- #invite رابط اضافة البوت
+/closeroom لقفل الشات المراد قفله 
+
+/openroom لفتح الشات المراد فتحه .
+
+/mute لاعطاء شخص ميوت . 
+
+/unmute لفك الميوت عن شخص .
+
+/myguild لرؤيه خصائص السيرفر 
+
+/unbanall لفك جميع الباند ال في السيرفر 
+
+/ban لاعطاء باند
+
+/app لعمل تقديم . 
+(يجب ان يوجد روم  app ) 
+
+/hide لاخفاء الرومات 
+
+/unhide لاظهار الرومات 
+
+/gstart لعمل جيف اواي وتابع الخطوات 
+( لما يجي ويقولك الروم متعملش هاشتاق ) 
+
+/addroleme لاختيار رتبه العاب ويرجي عدم التخريب بالامر  مره واحده فقط .
+
+/invites لمعرفه عدد الانفايتات .
 
  **`);
 
@@ -461,7 +455,7 @@ client.on('message', msg => {
 });
 
 client.on('message', message => {
-if(message.content.startsWith(prefix +"server")){
+if(message.content.startsWith(prefix + "server")){
   if(!message.guild.member(message.author).hasPermission("ADMINISTRATOR")) return message.reply(`**هذه الخاصية للادارة فقط** :negative_squared_cross_mark: `)
 if(!message.channel.guild) return message.reply(' ');
 const millis = new Date().getTime() - message.guild.createdAt.getTime();
@@ -847,7 +841,7 @@ hours = 12;
   if(message.content.startsWith(prefix + "gstart")) {
  
     if(!message.guild.member(message.author).hasPermission('MANAGE_GUILD')) return message.channel.send(':heavy_multiplication_x:| **يجب أن يكون لديك خاصية التعديل على السيرفر**');
-    message.channel.send(`:eight_pointed_black_star:| **Send Name channel For the Giveaway**`).then(msg => {
+    message.channel.send(`:eight_pointed_black_star:| **الروم المختار للجيف اواي (كتابه فقط بدون هاشتاق**`).then(msg => {
       message.channel.awaitMessages(filter, {
         max: 1,
         time: 20000,
@@ -857,7 +851,7 @@ hours = 12;
         if(!room) return message.channel.send(':heavy_multiplication_x:| **i Found It :(**');
         room = collected.first().content;
         collected.first().delete();
-        msg.edit(':eight_pointed_black_star:| **Time For The Giveaway**').then(msg => {
+        msg.edit(':eight_pointed_black_star:| **وقت الجيف اواي**').then(msg => {
           message.channel.awaitMessages(filter, {
             max: 1,
             time: 20000,
@@ -1155,24 +1149,16 @@ var m = msg.guild.roles.find("name", 'Minecraft');
           permissions:[]
         })
         }
-        var black = msg.guild.roles.find("name", 'Pubg/freeFire');
-    if(!black){
-        black =  await msg.guild.createRole({
-          name: "Pubg/freefire",
-          color: "#ffffff",
-          permissions:[]
-        })
-        }
+       
  
         if (msg.content.startsWith(prefix +'addmerole')) {
  
         if(!msg.channel.guild) return msg.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-msg.channel.send(`يرحي اختيار رتبة اللعبة الذي تريدها \n1- لعبة MTA ⚽ \n2- لعبة ماين كرافت 👶 \n3- لعبة فورت نايت 👊 \n4- لعبة كروس فاير  👌 \n5- ببجي او فري فاير 🍸\n6- الغاء ❌ \n7- **لديك60 ثانية للاختيار **\n<@${msg.author.id}>`).then(res => {    
+msg.channel.send(`يرحي اختيار رتبة اللعبة الذي تريدها \n1- لعبة MTA ⚽ \n2- لعبة ماين كرافت 👶 \n3- لعبة فورت نايت 👊 \n4- لعبة كروس فاير  👌 \n5- الغاء ❌ \n6- **لديك60 ثانية للاختيار **\n<@${msg.author.id}>`).then(res => {    
      res.react('⚽').then(r=>{    
      res.react('👶').then(r=>{
      res.react('👊').then(r=>{
      res.react('👌').then(r=>{
-     res.react('🍸').then(r=>{
      res.react('❌').then(r=>{
  
     let aaa = (reaction, user) => reaction.emoji.name === '⚽' && user.id === msg.author.id;    
@@ -1228,12 +1214,13 @@ cc.on("collect", r => {
      });
 
 client.on('message', message => {
-  if (message.content.toLowerCase().startsWith(prefix+ `top server`))  {
+  if (message.content.toLowerCase().startsWith(prefix+ `topserver`))  {
 
 const top = client.guilds.sort((a,b)=>a.memberCount-b.memberCount).array().reverse()
 message.channel.send(`**Top 10 Servers : **\n1. **${top[0].name}**: ${top[0].memberCount} \n2. **${top[1].name}**: ${top[1].memberCount}.\n3. **${top[2].name}**: ${top[2].memberCount}.\n4. **${top[3].name}**: ${top[3].memberCount}.\n5. **${top[4].name}**: ${top[4].memberCount}.\n6. **${top[5].name}**: ${top[5].memberCount}.\n7. **${top[6].name}**: ${top[6].memberCount}.\n8. **${top[7].name}**: ${top[7].memberCount}.\n9. **${top[8].name}**: ${top[8].memberCount}.\n10. **${top[9].name}**: ${top[9].memberCount} .`)
 }
   });
+
 
 
 
