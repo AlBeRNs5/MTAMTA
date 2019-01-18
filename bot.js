@@ -1035,121 +1035,69 @@ client.on('message', message => {
 });
 
 
-client.on('message', async msg => {
-    var prefix = "/";
-    var user = msg.author;
-            var a = msg.guild.roles.find("name", 'MTA Player');
-        if(!a){
-        a = await msg.guild.createRole({
-          name: "MTA Player",
-          color: "#ffffff",
-          permissions:[]
-        })
-       
-        }
-        var m = msg.guild.roles.find("name", 'Minecraft');
-    if(!m){
-        m =  await msg.guild.createRole({
-          name: "Minecraft",
-          color: "#ffffff",
-          permissions:[]
-        })
-        }
-        var f = msg.guild.roles.find("name", 'Fortnite');
-        if(!f){
-        f =  await msg.guild.createRole({
-          name: "Fortnite",
-          color: "#ffffff",
-          permissions:[]
-        })
-        }
-var m = msg.guild.roles.find("name", 'Minecraft');
-    if(!m){
-        m =  await msg.guild.createRole({
-          name: "Minecraft",
-          color: "#ffffff",
-          permissions:[]
-        })
-        }
-        var f = msg.guild.roles.find("name", 'CrossFire');
-        if(!f){
-        f =  await msg.guild.createRole({
-          name: "CrossFire",
-          color: "#ffffff",
-          permissions:[]
-        })
-        }
-        var b = msg.guild.roles.find("name", 'Creative Destruction');
-        if(!b){
-        b =  await msg.guild.createRole({
-          name: "Creative Destruction",
-          color: "#ffffff",
-          permissions:[]
-        })
-        }
-       
- 
-        if (msg.content.startsWith(prefix +'addmerole')) {
- 
-        if(!msg.channel.guild) return msg.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-msg.channel.send(`يرحي اختيار رتبة اللعبة الذي تريدها \n1- لعبة MTA ⚽ \n2- لعبة ماين كرافت 👶 \n3- لعبة فورت نايت 👊 \n4- لعبة كروس فاير  👌 \n5- الغاء ❌ \n6- **لديك60 ثانية للاختيار **\n<@${msg.author.id}>`).then(res => {    
-     res.react('⚽').then(r=>{    
-     res.react('👶').then(r=>{
-     res.react('👊').then(r=>{
-     res.react('👌').then(r=>{
-     res.react('❌').then(r=>{
- 
-    let aaa = (reaction, user) => reaction.emoji.name === '⚽' && user.id === msg.author.id;    
-    let mmm = (reaction, user) => reaction.emoji.name === '👶' && user.id === msg.author.id;
-    let fff = (reaction, user) => reaction.emoji.name === '👊' && user.id === msg.author.id;
-    let bbb = (reaction, user) => reaction.emoji.name === '👌' && user.id === msg.author.id;
-    let bbbb = (reaction, user) => reaction.emoji.name === '🍸' && user.id === msg.author.id;
-    let ccc = (reaction, user) => reaction.emoji.name === '❌' && user.id === msg.author.id;
- 
-    let aa = res.createReactionCollector(aaa, { maxMatches:1 , time: 20000 , });
-    let mm = res.createReactionCollector(mmm, { maxMatches:1 , time: 20000 , });
-    let ff = res.createReactionCollector(fff, { maxMatches:1 , time: 20000 , });
-    let bb = res.createReactionCollector(bbb, { maxMatches:1 , time: 20000 , });
-    let bl = res.createReactionCollector(bbbb,{ maxMatches:1 , time: 20000 , });
-    let cc = res.createReactionCollector(ccc, { maxMatches:1 , time: 20000 , });
- 
-aa.on("collect", r => {
-    msg.guild.member(user.id).addRole(a);
-    msg.channel.send('`تم اعطائك رتبة للعبة MTA`');
-    msg.delete();
-    })
-mm.on("collect", r => {
-    msg.guild.member(user.id).addRole(m);
-    msg.channel.send('`تم اعطائك رتبة للعبة Mincraft `');
-    msg.delete();
-})
-ff.on("collect", r => {
-    msg.guild.member(user.id).addRole(f);
-    msg.channel.send('`تم اعطائك رتبة للعبة Fortnite `');
-    msg.delete();
-})
-bb.on("collect", r => {
-    msg.guild.member(user.id).addRole(b);
-    msg.channel.send('`تم اعطائك رتبة للعبة CrossFIRE `');
-    msg.delete();
-})
-bl.on("collect", r => {
-    msg.guild.member(user.id).addRole(black);
-    msg.channel.send('`تم اعطائك رتبة للعبة Pubg/FreeFIre `');
-    msg.delete();
-})
-cc.on("collect", r => {
-    msg.delete();
-})
-     })
-     })
-     })
-     })
-     })
-     })
-     })
-     }
-     });
+client.on('message', message => {
+    if (message.author.bot) return;
+     if (message.content === prefix + "help") {
+      if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+     message.channel.send('**تم ارسال رسالة في الخاص**');
+
+
+
+
+ message.author.sendMessage(`
+ **
+/me برفكس البوت = "/"
+
+يمكنك عمل منشن للبوت وهو محترم في الرد . 
+
+/clear + Number ( يجب عليك بعد كتابه الامر كتابه عدد الرسائل التي ستحذفها )
+
+invitelink ( لرابط السيرفر تلقائي ) 
+
+/bc لارسال رسائل في الخاص للجميع 
+
+/user لرؤيه مواصفات حسابك داخل السيرفر 
+
+/members لمعرفه حاله الاعضاء بالسيرفر . وعددهم .
+
+/bot لمعرفه خصائص البوت .
+
+/inv لاضافه البوت . 
+
+/avatar لرؤيه صورتك 
+
+/closeroom لقفل الشات المراد قفله 
+
+/openroom لفتح الشات المراد فتحه .
+
+/mute لاعطاء شخص ميوت . 
+
+/unmute لفك الميوت عن شخص .
+
+/myguild لرؤيه خصائص السيرفر 
+
+/unbanall لفك جميع الباند ال في السيرفر 
+
+/ban لاعطاء باند
+
+/app لعمل تقديم . 
+(يجب ان يوجد روم  app ) 
+
+/hide لاخفاء الرومات 
+
+/unhide لاظهار الرومات 
+
+/gstart لعمل جيف اواي وتابع الخطوات 
+( لما يجي ويقولك الروم متعملش هاشتاق ) 
+
+/addroleme لاختيار رتبه العاب ويرجي عدم التخريب بالامر  مره واحده فقط .
+
+/invites لمعرفه عدد الانفايتات .
+
+ **`);
+
+    }
+});
 
 client.on('message', message => {
   if (message.content.toLowerCase().startsWith(prefix+ `topserver`))  {
