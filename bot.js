@@ -1173,11 +1173,27 @@ client.on('message', message => {
          .addField(':earth_asia: الدوله',message.guild.region)
          .addField(':ribbon: ايموجي السيرفر',`${message.guild.emojis.size}`,true)
          .addField(':construction: مستوى التحقق',`${verificationLevels[message.guild.verificationLevel]}`,true)
-         .addField(':closed_lock_with_key: الرتب  '+message.guild.roles.size+' ','Type`-roles` To See The Server Roles!')
+   
          message.channel.send({embed:xNiTRoZ});
      }
     }); 
 
+
+var prefix = "/";
+
+client.on("message", message => {//
+
+            if (message.content.startsWith(prefix + "obc")) {//
+                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+  let args = message.content.split(" ").slice(1);
+  var argresult = args.join(' '); //
+  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {//
+ m.send(`${argresult}\n ${m}`);//
+})//
+ message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
+ message.delete(); 
+};     //
+}); //
 
 
 
