@@ -998,6 +998,7 @@ client.on('message', message => {
 });
 
 
+
 client.on('message', message => {
     if (message.author.bot) return;
      if (message.content === prefix + "help") {
@@ -1007,8 +1008,7 @@ client.on('message', message => {
 
 
  message.author.sendMessage(`
- **
-/me برفكس البوت = "/"
+ ** /me برفكس البوت = "/"
 
 يمكنك عمل منشن للبوت وهو محترم في الرد . 
 
@@ -1193,10 +1193,13 @@ if (!channel) return;
 channel.send({embed : embed});
 });
 
+client.on('message', message => {
+    if (message.author.bot) return;
+     if (message.content === prefix + "اوامر") {
+     
+message.author.sendMessage(`
 
-client.on('message', msg => {
-  if (msg.content === ' اوامر ') {
-    msg.reply('سبوت:By : -#AlBeRNs
+By : -#AlBeRNs
  اوامر سبورت : 
 /ri id report : لقرائه سبب الريبورت 
 /ar id :  لقبول الريبورت 
@@ -1236,7 +1239,8 @@ client.on('message', msg => {
 /gotoplace bank للذهاب للبنك 
 /gotoint idint للذهاب لبيت  
 /forceapp id سبب 
-لمعاقبه شخص وخروجه من السيرف
+لمعاقبه شخص وخروجه من السيرفر
+
 -#AlBeRNs 
 اوامر ادمنيه : 
 /ri idreport : لقرائه سبب الريبورت 
@@ -1383,9 +1387,7 @@ https://www.owlgaming.net/library/interiors/
 لايقاف المود 
 
 
-');
-  }
-});
 
+ 
 
 client.login(process.env.BOT_TOKEN);
