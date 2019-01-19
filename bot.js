@@ -1194,4 +1194,198 @@ channel.send({embed : embed});
 });
 
 
+client.on('message', msg => {
+  if (msg.content === ' اوامر ') {
+    msg.reply('سبوت:By : -#AlBeRNs
+ اوامر سبورت : 
+/ri id report : لقرائه سبب الريبورت 
+/ar id :  لقبول الريبورت 
+/fr id لقفل الريبورت بدون قفله لانه بدون سبب : 
+/cr لقفل الريبورت 
+/dr لترك الريبورت لياخذه ادمن 
+/goto id للذهاب لشخص 
+/gethere id لنقل شخص لك 
+/getveh id لنقل سياره لك  
+/vehlib لمعرفه ايديات السيارات 
+/st تكلم في شات الستاف 
+/g للتكلم في شات السبورتات 
+/togg لقفل شات السبورتات وعدم رؤيته وتشغيله بكتابه الامر مجددا 
+/enterveh idplayer idveh 1/2/3 
+/ann للكلام للاعبين ك تحذير او نشر رابط شئ 
+/check id لرؤيه معلومات اللاعب .
+/checkveh idveh لرؤيه معلومات السياره .
+/fixveh id تصليح السياره 
+/flip لقلب السياره 
+/unflip لاعاده السياره وهي كانت مقلوبه تعيدها 
+/fuelveh id 100 لملئ بنزين للسياره 
+ملحوظه لجميع الرتب  في امر ملئ بنزين السياره : 
+عندما تلمئ بنزين لسياره تكتب : 
+/fuelveh id 100 
+لكن عندما تملئ بنزين ل طائره : 
+/fuelveh id 0 
+
+/gotoveh id للذهاب لسياره ومعرفه مكانها 
+/aheal id 100 لتعبئه دم احد  
+/ gmlounge    
+للذهاب لمكان اجتماع الادمنيه 
+/gotoplace للذهاب لمكان مثل مركز المدينه او المحطه او البنك تقوم بكتابه الامر ثم المكان ثم  id  
+ولمعرفه الاماكن اكثر اكتب 
+/places 
+/gotoplace ls للذهاب للمدينه 
+/gotoplace igs للذهاب للمحطه 
+/gotoplace bank للذهاب للبنك 
+/gotoint idint للذهاب لبيت  
+/forceapp id سبب 
+لمعاقبه شخص وخروجه من السيرف
+-#AlBeRNs 
+اوامر ادمنيه : 
+/ri idreport : لقرائه سبب الريبورت 
+/ar id :  لقبول الريبورت 
+/fr id لقفل الريبورت بدون قفله لانه بدون سبب : 
+/cr لقفل الريبورت 
+/dr لترك الريبورت لياخذه ادمن 
+/goto id للذهاب لشخص 
+/gethere id لنقل شخص لك 
+/getveh id لنقل سياره لك  
+/vehlib لمعرفه ايديات السيارات 
+/st تكلم في شات الستاف 
+/g للتكلم في شات السبورتات 
+/togg لقفل شات السبورتات وعدم رؤيته وتشغيله بكتابه الامر مجددا 
+/enterveh idplayer idveh 1/2/3 
+/ann للكلام للاعبين ك تحذير او نشر رابط شئ 
+/check id لرؤيه معلومات اللاعب .
+/checkveh idveh لرؤيه معلومات السياره .
+/fixveh id تصليح السياره 
+/flip لقلب السياره 
+/unflip لاعاده السياره وهي كانت مقلوبه تعيدها 
+/fuelveh id 100 لملئ بنزين للسياره 
+ملحوظه لجميع الرتب  في امر ملئ بنزين السياره : 
+عندما تلمئ بنزين لسياره تكتب : 
+/fuelveh id 100 
+لكن عندما تملئ بنزين ل طائره : 
+/fuelveh id 0  
+/findvehid
+/gotoveh id للذهاب لسياره ومعرفه مكانها 
+/aheal id 100 لتعبئه دم احد  
+/ gmlounge    
+للذهاب لمكان اجتماع الادمنيه 
+/gotoplace للذهاب لمكان مثل مركز المدينه او المحطه او البنك تقوم بكتابه الامر ثم المكان ثم  id  
+ولمعرفه الاماكن اكثر اكتب 
+/places 
+/gotoplace ls للذهاب للمدينه 
+/gotoplace igs للذهاب للمحطه 
+/gotoplace bank للذهاب للبنك 
+/gotoint idint للذهاب لبيت  
+/forceapp id سبب 
+لمعاقبه شخص وخروجه من السيرفر 
+/a  لتكلم في شات الادمنيه 
+/st للتكلم في شات الادمنيه لكن للكل 
+/toga لقفل شات الادمنيه 
+/marry id id لزواج شخصين ولد وبنت 
+/divorce id id  للطلاق . 
+/ooc للتكلم في شات للجميع لمعرفهتهم ب شئ 
+/togooc لاخد الاراء وهم يكتبون لقفله تكتبه مره اخري 
+عقوبه : 
+/jail id time سبب 
+لسجن شخص 
+واذا تريد سجنه بسبب الاسم الغير واقعي 
+/jail id 999 اسم غير واقعي ريبورت f2 لتغيره 
+/warn لاعطاء نقطه لاحد بسبب خطا 
+/vehlib لترستر المعرض 
+
+/showfactions لمعرفه الفاكشنات ورؤيه الايدي وعدد الموجودين 
+/setfaction idplayer idfaction 
+لتدخيل لاعب فاكشن بدون ليدر 
+/setvehfaction idveh idfaction 
+لتدخيل سياره فاكشن 
+/adde لعمل سهم وكتبتها مرتين مره في المكان ومره في مكان اخر 
+/addramp لعمل رافعه  
+/delramp id لحذف الرافعه 
+/apark id لعمل بارك سياره بدون ركبوها 
+/aunimpound idveh لفك حجز سياره 
+/addupgrade idplayer all لتعديل علي السياره كامله و نيترو ب امر واحد . 
+
+/setvehtint id 1 لعمل تظليل لسياره 
+/changename id اسم جديد 
+لتغير الاسم للاعب  
+
+/makeveh id 0 0 idplayer 0/1 1 1 
+0 = لنفسك 
+1  = للفاكشن ال انت فيه 
+
+/delveh id لحذف سياره 
+/restoreveh لاعاده سياره من حذف ( استرجاع ) 
+/fixvehs 
+/getcolor لتغير لون السياره 
+/makecivveh  
+لعمل سياره للرخص او نقل البضائع 
+/respawnall time 10 / 30 /60 
+ثانيه لعمل ريسياون لجميع السيارات  
+/makeshop Type idskin name 
+لعمل شوب اكتب /makeshop 
+ثم اختار التايب ثم ايدي السكن ثم الاسم 
+/nearbyshops لمعرفه ايديات الشوبات 
+/delshop لحذف شوب 
+/moveshop لنقل شوب 
+/setintname name لتغير الاسم 
+/restock لعمل بضائع للشوبات من جديد 
+/restoreint  لحذف جميع ما في البيت من خزنه 
+/restoreshop لحذف جميع الشوبات التي في المحل 
+/sell id لبيع سياره لاحد او بيت 
+/auncuff id لفك كلبشه شخص 
+/disarm id لحذف اسلحه من شخص 
+/items لاعطاء الاغراض 
+/addatm لعمل atm 
+/banaccount لعمل باند اكونت لشخص 
+/disappear  
+للاختفاء 
+/givesuperman لاعطاء سبورت طيران 
+/pkick لطرد شخص من السيرفر كيك 
+/pban لاعطاء باند 
+/unban  username  لفك باند 
+/revive id لاحياء شخص من جديد 
+/sendto id id لبعت شخص لشخص الاول الذي يريد الذهاب للثاني 
+/sendveh idveh id لبعت سياره لشخص 
+/setskin id idskin لتغير السكن لشخص 
+/watch id لرؤيه شخص من مكانك 
+/recon id لمراقبه شخص 
+ادمن اساسي : 
+/makefaction اكتبها ثم اتبع الخطوات 
+/delfaction id لحذف فاكشن 
+/renamefaction id اسم جديد 
+لتغير اسم فاكشن 
+/setfactionleader id idfaction لدخول فاكشن بليدر 
+/respawnfaction idfaction 
+لعمل ريسباون لسياره فاكشن 
+/addint اكتب الامر واتبع الخطوات 
+/delint id لحذف بيت 
+/setintentrance idint  لتغير مكان بيت 
+/setintid لتغير ديكور  
+موقع ايدي انتروهات : 
+https://www.owlgaming.net/library/interiors/ 
+/nearbygates لمعرفه ايدي بوابه 
+/gates لرؤيه البوبات 
+/givemoney id money سبب 
+لاعطاء مال لاحد 
+/givegc id gc سبب 
+لاعطاء جي سي لاحد 
+/gunlist لمعرفه ايدي الاسلحه 
+/makegun id   لصنع سلاح    
+/makeammo id لصنع ذخيره  
+/ck id سبب 
+لاعطاء سي كي لاحد 
+
+/refresh اولا .
+/startres اسم المود لتشغيل المود 
+/restartres اسم المود 
+لاعاده تشغيل المود 
+/stopres اسم المود 
+لايقاف المود 
+
+
+');
+  }
+});
+
+
 client.login(process.env.BOT_TOKEN);
