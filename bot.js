@@ -539,7 +539,7 @@ client.on('message',async message => {
   });
 
 client.on("message", message => {
-            if(message.content.startsWith("/تقديم")) { /// Mal , Codes //// O҉Z҉X҉ 
+            if(message.content.startsWith("/app")) { /// Mal , Codes //// O҉Z҉X҉ 
         if(!message.channel.guild) return;////////غير البرفكس
                 if(message.author.bot) return;
         let channel = message.guild.channels.find("name", "التقديمات")//////dont change any thing
@@ -616,7 +616,7 @@ client.on("message", message => {
 }
         });
         client.on('message', message=>{
-            if(message.content.startsWith("/روم1")) {
+            if(message.content.startsWith("/room1")) {
             if(!message.channel.guild) return;
                 if(message.author.bot) return;
                 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
@@ -633,7 +633,7 @@ client.on("message", message => {
   let mention = message.mentions.members.first();
   let role = message.content.split(" ").slice(2).join(" ");
   let mySupport = message.guild.roles.find('name',role);
-  if(message.content.startsWith("/قبول")) {
+  if(message.content.startsWith("/acc")) {
     let acRoom = message.guild.channels.find('name', 'القبول-الرفض');
     if(!acRoom) return message.reply("!!setac من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
     if(acRoom) {
@@ -651,7 +651,7 @@ client.on("message", message => {
 });
 client.on('message',async message => {
   let mention = message.mentions.members.first();
-  if(message.content.startsWith("+رفض")) {
+  if(message.content.startsWith("/de")) {
   if(!message.channel.guild) return;
   let acRoom = message.guild.channels.find('name', 'القبول-الرفض');
   if(!acRoom) return message.reply("!!setac من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
@@ -662,7 +662,7 @@ client.on('message',async message => {
   }
 });
           client.on('message', message=>{
-            if(message.content.startsWith("/روم2")) {
+            if(message.content.startsWith("/room2")) {
          if(!message.channel.guild) return;
                 if(message.author.bot) return;
                 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
@@ -1001,8 +1001,7 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.author.bot) return;
      if (message.content === prefix + "help") {
-      if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
-     message.channel.send('**تم ارسال رسالة في الخاص**');
+     
 
 
 
@@ -1151,6 +1150,35 @@ client.on('message', message => {
     })
     }
     });
+
+
+client.on('message', message => {
+    if (message.content === "/server2") {
+        if (!message.channel.guild) return
+        var verificationLevel = message.guild.verificationLevel;
+        const verificationLevels = ['None','Low','Meduim','High','Extreme'];
+        var Y1 = message.guild.createdAt.getFullYear() - 2000
+        var M2 = message.guild.createdAt.getMonth()
+        var D3 = message.guild.createdAt.getDate()
+        const xNiTRoZ = new Discord.RichEmbed()
+         .setAuthor(message.author.username , message.author.avatarURL)
+         .setColor('RANDOM')
+         .setTimestamp()
+         .setTitle(message.guild.name,message.guild.iconURL)
+         .addField(':id: اي دي السيرفر',`${message.guild.id}`,true)
+         .addField(':date: أنشئت في',D3 + '.' + M2 + '.' + Y1,true)            
+         .addField(':crown: اونر السيرفر',`${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`)            
+         .addField(':busts_in_silhouette: الاعضاء ' + ` ${message.guild.memberCount} `,'Online '+`[ ${message.guild.members.filter(m=>m.presence.status == 'online','idle','dnd').size} ]`+ ','+'Offline '+`[ ${message.guild.members.filter(m=>m.presence.status == 'offline').size} ]`,true)
+         .addField(':speech_balloon: قنوات' +' '+message.guild.channels.size+' ',`Text [ ${message.guild.channels.filter(m => m.type === 'text').size} ]`+', '+`Voice [ ${message.guild.channels.filter(m => m.type === 'voice').size} ]`,true)
+         .addField(':earth_asia: الدوله',message.guild.region)
+         .addField(':ribbon: ايموجي السيرفر',`${message.guild.emojis.size}`,true)
+         .addField(':construction: مستوى التحقق',`${verificationLevels[message.guild.verificationLevel]}`,true)
+         .addField(':closed_lock_with_key: الرتب  '+message.guild.roles.size+' ','Type`-roles` To See The Server Roles!')
+         message.channel.send({embed:xNiTRoZ});
+     }
+    }); 
+
+
 
 
 
