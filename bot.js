@@ -1271,114 +1271,27 @@ client.on('message', msg => {
   }
 });
 
-client.on('message', async msg => {
-    var prefix = "/";
-    var user = msg.author;
-            var a = msg.guild.roles.find("name", 'MTA');
-        if(!a){
-        a = await msg.guild.createRole({
-          name: "MTA",
-          color: "#ffffff",
-          permissions:[]
-        })
-       
-        }
-        var m = msg.guild.roles.find("name", 'Minecraft');
-    if(!m){
-        m =  await msg.guild.createRole({
-          name: "Minecraft",
-          color: "#ffffff",
-          permissions:[]
-        })
-        }
-        var f = msg.guild.roles.find("name", 'Fortnite');
-        if(!f){
-        f =  await msg.guild.createRole({
-          name: "Fortnite",
-          color: "#ffffff",
-          permissions:[]
-        })
-        }
-        var f = msg.guild.roles.find("name", 'Crossfire');
-        if(!f){
-        f =  await msg.guild.createRole({
-          name: "Crossfire",
-          color: "#ffffff",
-          permissions:[]
-        })
-        }
-        var b = msg.guild.roles.find("name", 'Creative Destruction');
-        if(!b){
-        b =  await msg.guild.createRole({
-          name: "Creative Destruction",
-          color: "#ffffff",
-          permissions:[]
-        })
-        }
- 
-        if (msg.content.startsWith(prefix +'addrole')) {
- 
-        if(!msg.channel.guild) return msg.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-msg.channel.send(`يرحي اختيار رتبة اللعبة الذي تريدها \n1- لعبة ام تي اي ⚽ \n2- لعبة ماين كرافت 👶 \n3- لعبة فورت نايت 👊 \n4-  لعبة كروس فاير  👌 \n5- لعبة كريتف ديسكريتشن 🍸\n6- الغاء ❌ \n7- **لديك60 ثانية للاختيار **\n<@${msg.author.id}>`).then(res => {    
-     res.react('⚽').then(r=>{    
-     res.react('👶').then(r=>{
-     res.react('👊').then(r=>{
-     res.react('👌').then(r=>{
-     res.react('🍸').then(r=>{
-     res.react('❌').then(r=>{
- 
-    let aaa = (reaction, user) => reaction.emoji.name === '⚽' && user.id === msg.author.id;    
-    let mmm = (reaction, user) => reaction.emoji.name === '👶' && user.id === msg.author.id;
-    let fff = (reaction, user) => reaction.emoji.name === '👊' && user.id === msg.author.id;
-    let bbb = (reaction, user) => reaction.emoji.name === '👌' && user.id === msg.author.id;
-    let bbbb = (reaction, user) => reaction.emoji.name === '🍸' && user.id === msg.author.id;
-    let ccc = (reaction, user) => reaction.emoji.name === '❌' && user.id === msg.author.id;
- 
-    let aa = res.createReactionCollector(aaa, { maxMatches:1 , time: 20000 , });
-    let mm = res.createReactionCollector(mmm, { maxMatches:1 , time: 20000 , });
-    let ff = res.createReactionCollector(fff, { maxMatches:1 , time: 20000 , });
-    let bb = res.createReactionCollector(bbb, { maxMatches:1 , time: 20000 , });
-    let bl = res.createReactionCollector(bbbb,{ maxMatches:1 , time: 20000 , });
-    let cc = res.createReactionCollector(ccc, { maxMatches:1 , time: 20000 , });
- 
-aa.on("collect", r => {
-    msg.guild.member(user.id).addRole(a);
-    msg.channel.send('`تم اعطائك رتبة للعبة MTA `');
-    msg.delete();
-    })
-mm.on("collect", r => {
-    msg.guild.member(user.id).addRole(m);
-    msg.channel.send('`تم اعطائك رتبة للعبة Mincraft `');
-    msg.delete();
-})
-ff.on("collect", r => {
-    msg.guild.member(user.id).addRole(f);
-    msg.channel.send('`تم اعطائك رتبة للعبة Fortnite `');
-    msg.delete();
-})
-bb.on("collect", r => {
-    msg.guild.member(user.id).addRole(b);
-    msg.channel.send('`تم اعطائك رتبة للعبة Crossfire `');
-    msg.delete();
-})
-bl.on("collect", r => {
-    msg.guild.member(user.id).addRole(black);
-    msg.channel.send('`تم اعطائك رتبة للعبة Creative Destruction `');
-    msg.delete();
-})
-cc.on("collect", r => {
-    msg.delete();
-})
-     })
-     })
-     })
-     })
-     })
-     })
-     })
-     }
-     });
-
+client.on("message", message => {
+let args = message.content.split(' ');
+let prefix = "/";
+if(args[0].toLowerCase() === (prefix + 'calc')){
+    const math = require("mathjs");
+    const ssff = message.content.split(' ').slice(1).join(' ');
+    const responsee = math.eval(ssff);
+    if(!ssff){
+        return message.channel.send(`عليك ان تحدد مسألة حسابية حقيقية`);
+    }
+    let embed = new Discord.RichEmbed();
+    embed.setTitle(`عملية حسابية جديدة`);
+    embed.setThumbnail(message.author.displayAvatarURL);
+    embed.setTimestamp();
+    embed.setFooter(message.author.tag,message.author.displayAvatarURL);
+    embed.setColor(`#ffb3b3`);
+    embed.addField(`المسألة :`,`\`\`\`js\n${ssff}\`\`\``);
+    embed.addField(`الناتج :`,`\`\`\`js\n${responsee}\`\`\``);
+    message.channel.send(embed);
+}
+	
 
 
 
