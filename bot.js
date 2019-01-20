@@ -1316,7 +1316,7 @@ client.on('message', async msg => {
         })
         }
  
-        if (msg.content.startsWith(prefix +'addmerole')) {
+        if (msg.content.startsWith(prefix +'addrole')) {
  
         if(!msg.channel.guild) return msg.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
 msg.channel.send(`يرحي اختيار رتبة اللعبة الذي تريدها \n1- لعبة ام تي اي ⚽ \n2- لعبة ماين كرافت 👶 \n3- لعبة فورت نايت 👊 \n4-  لعبة كروس فاير  👌 \n5- لعبة كريتف ديسكريتشن 🍸\n6- الغاء ❌ \n7- **لديك60 ثانية للاختيار **\n<@${msg.author.id}>`).then(res => {    
