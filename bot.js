@@ -1271,27 +1271,6 @@ client.on('message', msg => {
   }
 });
 
-client.on("message", message => {
-let args = message.content.split(' ');
-let prefix = "/";
-if(args[0].toLowerCase() === (prefix + 'calc')){
-    const math = require("mathjs");
-    const ssff = message.content.split(' ').slice(1).join(' ');
-    const responsee = math.eval(ssff);
-    if(!ssff){
-        return message.channel.send(`عليك ان تحدد مسألة حسابية حقيقية`);
-    }
-    let embed = new Discord.RichEmbed();
-    embed.setTitle(`عملية حسابية جديدة`);
-    embed.setThumbnail(message.author.displayAvatarURL);
-    embed.setTimestamp();
-    embed.setFooter(message.author.tag,message.author.displayAvatarURL);
-    embed.setColor(`#ffb3b3`);
-    embed.addField(`المسألة :`,`\`\`\`js\n${ssff}\`\`\``);
-    embed.addField(`الناتج :`,`\`\`\`js\n${responsee}\`\`\``);
-    message.channel.send(embed);
-}
-	
 
 
 
