@@ -1272,7 +1272,7 @@ client.on('message', msg => {
 });
 
 client.on('message', async msg => {
-    var prefix = ".";
+    var prefix = "/";
     var user = msg.author;
             var a = msg.guild.roles.find("name", 'MTA');
         if(!a){
