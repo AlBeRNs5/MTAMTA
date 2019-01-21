@@ -396,26 +396,30 @@ client.on('message', msg => {
 
 client.on('message', message => {
     var prefix = "/"
-    if (message.content === prefix + 'albernsrooms') {
+    if (message.content === prefix + 'alberns') {
         if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
                 if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_CHANNELS`` **Premission**`);
 	    
          message.guild.createChannel('welcome', 'text')
          message.guild.createChannel('announcements', 'text')
          message.guild.createChannel('Scripting-show', 'text')
-          message.guild.createChannel('maps-show', 'text')
+         message.guild.createChannel('maps-show', 'text')
          message.guild.createChannel('talk', 'voice')
-          message.guild.createChannel('vote', 'text')
+         message.guild.createChannel('vote', 'text')
          message.guild.createChannel('duo', 'voice')
          message.guild.createChannel('pic', 'text')
          message.guild.createChannel('AFK', 'voice')
-          message.guild.createChannel('Chat', 'text')
+         message.guild.createChannel('Chat', 'text')
          message.guild.createChannel('Sugg', 'text')
          message.guild.createChannel('game', 'text')
          message.guild.createChannel('music', 'voice')
-                  message.guild.createChannel('bot', 'text')
+         message.guild.createChannel('bot', 'text')
          message.guild.createChannel('app', 'text')
-    
+         message.guild.createChannel('log', 'text')
+         message.guild.createChannel('staff-chat', 'text')
+         message.guild.createChannel('staff-cmd', 'text')
+         message.guild.createChannel('staff-roles', 'text')
+
     message.channel.sendMessage('**Done AlBeRNs **')
     }
     });
@@ -1153,7 +1157,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-    if (message.content === "/server2") {
+    if (message.content === "/server") {
         if (!message.channel.guild) return
         var verificationLevel = message.guild.verificationLevel;
         const verificationLevels = ['None','Low','Meduim','High','Extreme'];
@@ -1272,7 +1276,7 @@ client.on('message', msg => {
 });
 
 client.on('message', message => {
-    if (message.content === "/albernsroles") {
+    if (message.content === "/alberns") {
     if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
             if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_ROLES`` **Premission**`);
 
@@ -1322,6 +1326,35 @@ client.on('message', message => {
 message.channel.sendMessage('**الرجاء الانتظار ..**')
 }
 });
+
+client.on('message', message => {
+    var prefix = "/"
+    if (message.content === prefix + 'discordalberns') {
+        if(!message.channel.guild) return message.channel.send('**This Command Only For Servers !**')
+                if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send(`**${message.author.username} You Dont Have** ``MANAGE_CHANNELS`` **Premission**`);
+	    
+         message.guild.createChannel('gate', 'text')
+         message.guild.createChannel('welcome', 'text')
+         message.guild.createChannel('news', 'text')
+          message.guild.createChannel('', 'text')
+         message.guild.createChannel('talk', 'voice')
+          message.guild.createChannel('vote', 'text')
+         message.guild.createChannel('duo', 'voice')
+         message.guild.createChannel('pic', 'text')
+         message.guild.createChannel('AFK', 'voice')
+          message.guild.createChannel('Chat', 'text')
+         message.guild.createChannel('Sugg', 'text')
+         message.guild.createChannel('game', 'text')
+         message.guild.createChannel('music', 'voice')
+         message.guild.createChannel('bot', 'text')
+         message.guild.createChannel('app', 'text')
+         message.guild.createChannel('invite-rewards', 'text')
+         message.guild.createChannel('staff-chat', 'text')
+         message.guild.createChannel('staff-cmd', 'text')
+
+    message.channel.sendMessage('**Done AlBeRNs **')
+    }
+    });
 
 
 
