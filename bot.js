@@ -1287,6 +1287,7 @@ client.on('message', message => {
                      message.guild.createRole({ name: "Temp Housess", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "Discord Programer", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "VIP", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Bots", color: "#ffffff", permissions: [] })     
                      message.guild.createRole({ name: "Roleplay Member", color: "#ffffff", permissions: [] })
         
 
@@ -1314,10 +1315,11 @@ client.on('message', message => {
                      message.guild.createRole({ name: "VIP", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "Gamer", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "Youtuber", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Bots", color: "#ffffff", permissions: [] }) 
                      message.guild.createRole({ name: "Members", color: "#ffffff", permissions: [] })
         
 
-message.channel.sendMessage('**الرجاء الانتظار ريث ما يتم صناعه الرتب **')
+message.channel.sendMessage('**الرجاء الانتظار ..**')
 }
 });
 
