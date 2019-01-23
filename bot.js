@@ -1291,7 +1291,8 @@ client.on('message', message => {
                      message.guild.createRole({ name: "Temp Housess", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "Discord Programer", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "VIP", color: "#ffffff", permissions: [] })
-                     message.guild.createRole({ name: "Bots", color: "#ffffff", permissions: [] })     
+                     message.guild.createRole({ name: "Bots", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Support Team", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "Roleplay Member", color: "#ffffff", permissions: [] })
         
 
@@ -1311,7 +1312,7 @@ client.on('message', message => {
                      message.guild.createRole({ name: "King", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "Qween", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "Admin", color: "#ffffff", permissions: [] })
-                     message.guild.createRole({ name: "Support", color: "#ffffff", permissions: [] })
+                     message.guild.createRole({ name: "Support Team", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "Seller", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "وسيط", color: "#ffffff", permissions: [] })
                      message.guild.createRole({ name: "Pros", color: "#ffffff", permissions: [] })
