@@ -1558,5 +1558,18 @@ if(ratus.user.id === message.author.id) {
 } else return message.channel.send(`I'd give **__${ratus.user.username}__** ${result}/10 :thinking:`);
  }
 });
+client.on('message', message => {
+    if(message.content === "/infobot") {
+        const embed = new Discord.RichEmbed()
+        .setColor("#00FFFF")
+  .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
+         .addField('**سرعة الاتصال📡**' , `${Date.now() - message.createdTimestamp}` + ' ms')
+        .addField('**استخدام المعالج💿**', `${(process.cpuUsage().rss / 10000).toFixed()}%`, true)
+        .addField('**🌐 عدد السيرفرات**' , `${client.guilds.size}`, true)
+        .addField('**عدد المستخدمين 👥 **' , `${client.users.size}`, true)
+               message.channel.sendEmbed(embed);
+           }
+});
+
 
 client.login(process.env.BOT_TOKEN);
