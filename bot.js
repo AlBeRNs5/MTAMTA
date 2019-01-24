@@ -1684,4 +1684,16 @@ client.on('message', message => {
    }
 });
 
+client.on('message', message => {
+  let args = message.content.split(" ")
+  if (args[0].toLowerCase().startsWith(prefix+'roles')) {
+    let str = "";
+    var role = message.guild.roles.forEach(role => {
+      str +=" "+role.name+'\n'
+    })
+    message.channel.send(`\`\`\`${str}\`\`\``)
+  }
+})
+
+
 client.login(process.env.BOT_TOKEN);
