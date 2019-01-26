@@ -992,16 +992,16 @@ client.on('message', message => {
 
 
 
-client.on('message', message => {
-    if (message.author.bot) return;
-     if (message.content === prefix + "help") {
-     
+client.on("message", message => {
+    if (message.content === `${prefix}help`) {
+  const embed = new Discord.RichEmbed()
+      .setColor("#111111")
+      .setDescription(`
+**برفكس البوت = "/"
 
+يجب عليك ان تقوم بكتابه الامرين  /room1 - /room2
 
-
-
- message.author.sendMessage(`
- ** /me برفكس البوت = "/"
+وعمل روم بأسم suggestions 
 
 يمكنك عمل منشن للبوت وهو محترم في الرد . 
 
@@ -1047,13 +1047,12 @@ invitelink ( لرابط السيرفر تلقائي )
 
 /addroleme لاختيار رتبه العاب ويرجي عدم التخريب بالامر  مره واحده فقط .
 
-/invites لمعرفه عدد الانفايتات .
-
- **`);
-
-    }
-});
-
+/invites لمعرفه عدد الانفايتات**
+ `)
+   message.channel.sendEmbed(embed)
+   
+   }
+   });
 client.on('message', message => {
   if (message.content.toLowerCase().startsWith(prefix+ `topserver`))  {
 
