@@ -1522,7 +1522,7 @@ client.on('message',async message => {
     }
 
                         if (message.content.startsWith(prefix + "close")) {
-        if (!message.channel.name.startsWith(`ticket/`)) return message.channel.send(`لا يمكنك استخدام أمر الإغلاق خارج روم التذكره.`);
+        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`لا يمكنك استخدام أمر الإغلاق خارج روم التذكره.`);
 
         message.channel.send(` ***هل أنت متأكد من إغلآق التذكرة ؟, Type /close to close the ticket., لديك 10 ثوآني للتأكيد .***`)
             .then((m) => {
@@ -1721,6 +1721,25 @@ m.delete();
 omar.reply("`تم حذف جميع الرتب بنجاح`")
 }
 });
+
+
+lient.on('guildMemberAdd', Sal => { 
+    var embed = new Discord.RichEmbed()
+    .setAuthor(Sal.user.username, Sal.user.avatarURL)
+    .setThumbnail(Sal.user.avatarURL)
+    .setImage('https://cdn.discordapp.com/attachments/492862340484694027/493771573740830740/welcome1.png') //هنا حط الصوره الي تبيها
+    .setTitle('عضو جديد!')
+    .setDescription('مرحبا بك بالسيرفر')
+    .addField('``ايدي العضو``:',"" +  Sal.user.id, true)
+    .addField('``تاق العضو``', Sal.user.discriminator, true)
+    .addField('``تم الانشاء في``', Sal.user.createdAt, true)
+    .addField(' 👤  انت رقم',`**[ ${Sal.guild.memberCount} ]**`,true)
+    .setColor('RANDOM')
+    .setFooter(Sal.guild.name, Sal.guild.iconURL, true)
+    var channel =Sal.guild.channels.find('name', 'welcome') // هنا حط اسم الروم الي تبيه يكتب فيه
+    if (!channel) return;
+    channel.send({embed : embed});
+    });
 
 
 client.login(process.env.BOT_TOKEN);
