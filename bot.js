@@ -1209,8 +1209,6 @@ client.on('message', msg => {
   }
 });
 
-);
-
 client.on('message', msg => {
   if (msg.content === 'لاعبيين') {
     msg.reply('http://www.mediafire.com/file/ncpp8qvl69bk4qg/%25D8%25A7%25D9%2588%25D8%25A7%25D9%2585%25D8%25B1_%25D9%2584%25D8%25A7%25D8%25B9%25D8%25A8%25D9%258A%25D9%258A%25D9%2586_..docx/file');
