@@ -260,7 +260,7 @@ client.on('message', message => {
     let embed = new Discord.RichEmbed()
     .setAuthor(` ${message.author.username} `, message.author.avatarURL)      
     .setTitle(`Click Here To Add Me `)
-    .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=529791622448152596&permissions=8&scope=bot`)  // حط اي دي بوتك
+    .setURL(`https://discordapp.com/api/oauth2/authorize?client_id=529791622448152596&permissions=2146958839&scope=bot`)  // حط اي دي بوتك
     .setThumbnail("https://discordapp.com/api/oauth2/authorize?client_id=529791622448152596&permissions=8&scope=bot")        
  message.channel.sendEmbed(embed);
    }
