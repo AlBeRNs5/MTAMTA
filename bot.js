@@ -1522,11 +1522,11 @@ client.on('message',async message => {
     }
 
                         if (message.content.startsWith(prefix + "close")) {
-        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`لا يمكنك استخدام أمر الإغلاق خارج روم التذكره.`);
+        if (!message.channel.name.startsWith(`ticket/`)) return message.channel.send(`لا يمكنك استخدام أمر الإغلاق خارج روم التذكره.`);
 
-        message.channel.send(` ***هل أنت متأكد من إغلآق التذكرة ؟, Type $confirm to close the ticket., لديك 10 ثوآني للتأكيد .***`)
+        message.channel.send(` ***هل أنت متأكد من إغلآق التذكرة ؟, Type /close to close the ticket., لديك 10 ثوآني للتأكيد .***`)
             .then((m) => {
-                message.channel.awaitMessages(response => response.content === '/confirm', {
+                message.channel.awaitMessages(response => response.content === '/close', {
                         max: 1,
                         time: 10000,
                         errors: ['time'],
@@ -1701,25 +1701,27 @@ if(message.content === '/voice') {
 }
 });
 
-client.on('message', message => {
-     var prefix = "/";
-  if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
+const invites = {};
+const wait = require('util').promisify(setTimeout);
+client.on('ready', () => {
+  wait(1000);
 
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-
-  let args = message.content.split(" ").slice(1);
-  
- 
-
-if (command == "za5") {
-    let say = new Discord.RichEmbed()
-        .setTitle('Text emboss :')
-   message.channel.send(`\n ${zalgo(args.join(' '))}`);
-  }
-
+  client.guilds.forEach(g => {
+    g.fetchInvites().then(guildInvites => {
+      invites[g.id] = guildInvites;
+    });
+  });
 });
 
+client.on('guildMemberAdd', member => {
+  member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const Galal = member.guild.channels.find("name", "اسم الروم الكتابيه");
+     Galal.send(`<@${member.user.id}> joined by <@${inviter.id}>`);
+   //  Galal.send(`<@${member.user.id}> joined using invite code ${invite.code} from <@${inviter.id}>. Invite was used ${invite.uses} times since its creation.`);
+  }); 
+})
 
 client.login(process.env.BOT_TOKEN);
