@@ -415,7 +415,6 @@ client.on('message', message => {
          message.guild.createChannel('music', 'voice')
          message.guild.createChannel('bot', 'text')
          message.guild.createChannel('app', 'text')
-         message.guild.createChannel('log', 'text')
          message.guild.createChannel('staff-chat', 'text')
          message.guild.createChannel('staff-cmd', 'text')
          message.guild.createChannel('staff-roles', 'text')
