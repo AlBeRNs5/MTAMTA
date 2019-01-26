@@ -1209,11 +1209,7 @@ client.on('message', msg => {
   }
 });
 
-client.on('message', msg => {
-  if (msg.content === 'سبورت') {
-    msg.reply('http://www.mediafire.com/file/nyz66ab5s2y6wdx/%25D8%25A7%25D9%2588%25D8%25A7%25D9%2585%25D8%25B1_%25D8%25B3%25D8%25A8%25D9%2588%25D8%25B1%25D8%25AA_..docx/file');
-  }
-});
+);
 
 client.on('message', msg => {
   if (msg.content === 'لاعبيين') {
@@ -1337,7 +1333,7 @@ client.on('message', message => {
          message.guild.createChannel('gate', 'text')
          message.guild.createChannel('welcome', 'text')
          message.guild.createChannel('news', 'text')
-          message.guild.createChannel('', 'text')
+          message.guild.createChannel('Free Alts', 'text')
          message.guild.createChannel('talk', 'voice')
           message.guild.createChannel('vote', 'text')
          message.guild.createChannel('duo', 'voice')
@@ -1723,6 +1719,51 @@ omar.reply("`تم حذف جميع الرتب بنجاح`")
 });
 
 
+client.on('message', msg => {
+  if (msg.content === 'بوت خول') {
+    msg.reply('زيك ');
+  }
+});
 
 
+client.on('message', msg => {
+  if (msg.content === 'ملكش دعوه') {
+    msg.reply('في شارع الدعوه');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'فين') {
+    msg.reply('.... في');
+  }
+}); 
+client.on('message', msg => {
+  if (msg.content === '.') {
+    msg.reply('ايوه يعني اعملك ايه يعني .؟');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'خول') {
+    msg.reply('طيزك بتتحول ');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'شرموط') {
+    msg.reply('طيزك فيها قلوط .');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'هاي بوت') {
+    msg.reply('هاي يحبب');
+  }
+});
+
+client.on('message', msg => {
+  if (msg.content === 'عاش') {
+    msg.reply('شكرا يحبب :heart:');
+  }
+});
 client.login(process.env.BOT_TOKEN);
